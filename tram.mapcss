@@ -322,7 +322,7 @@ way[highway=bridleway]{
     image: none;
 }
 
-way [highway=steps] {
+way[highway=steps] {
     z-index: 5;
     width: 6;
     dashes: 2,2;
@@ -334,18 +334,18 @@ way [highway=steps] {
     linejoin: bevel;
 }
 
-way|z17 [highway=steps] {
+way|z17[highway=steps] {
     width: 3;
     dashes: 1,2;
 }
 
-way|z16 [highway=steps] {
+way|z16[highway=steps] {
     width: 3;
     color: #666666;
     dashes: 0;
 }
 
-way|z1-15 [highway=steps] {
+way|z1-15[highway=steps] {
     width: 2;
     color: #888888;
     dashes: 0;
