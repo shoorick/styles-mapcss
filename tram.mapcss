@@ -27,6 +27,14 @@ relation[landuse=cemetery] {
     z-index: 4; /* over wood */
     fill-image: img/cemetery.png;
     color: #bace84;
+}
+
+relation[landuse=cemetery] way {
+    color: #bace84;
+}
+
+area|z15-[landuse=cemetery],
+relation|z15-[landuse=cemetery] {
     text: name;
     text-color: #bace84;
     text-halo-color: #ffffff80;
@@ -35,12 +43,6 @@ relation[landuse=cemetery] {
     font-family: "Open Sans";
     font-style: italic;
 }
-
-relation[landuse=cemetery] way {
-    color: #bace84;
-}
-
-
 
 /*
 area[wood=mixed], relation[wood=mixed] {
@@ -149,6 +151,10 @@ area|z12-[waterway=riverbank], relation|z12-[waterway=riverbank]
 
 area[waterway=riverbank], relation[waterway=riverbank], way[waterway=river] {
     text-position: line;
+}
+
+way[waterway=river], way[waterway=stream] {
+    z-index: 2;
 }
 
 
