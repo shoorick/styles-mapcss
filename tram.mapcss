@@ -1,4 +1,7 @@
-canvas { fill-color: #fcfaf6; }
+canvas {
+    fill-color: #fcfaf6;
+    background-color: #fcfaf6;
+}
 
 /************************************************
 
@@ -302,6 +305,11 @@ way[highway=secondary], way[highway=secondary_link] {
     font-size: 12;
 }
 
+way[highway=tertiary], way[highway=tertiary_link] {
+    casing-width: 0.6;
+    color: #fffef0;
+}
+
 way|z15[highway] { width : 3.0; }
 way|z16[highway] { width : 5.0; }
 way|z17[highway] { width : 8.0; }
@@ -321,6 +329,14 @@ way[highway=bridleway]{
     casing-dashes: 0;
     image: none;
 }
+
+way|z1-10[highway=residential],
+way|z1-10[highway=unclassified] {
+    width: 1;
+    color: #aa8877;
+    casing-width: 0;
+}
+
 
 way[highway=steps] {
     z-index: 5;
