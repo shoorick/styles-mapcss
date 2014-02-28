@@ -236,19 +236,19 @@ way|z18-[railway=tram] { width: 4.0; }
 
 relation[type=route] line|z8-[railway=tram] { width: 3; casing-width: 2.0; }
 relation[type=route] line|z12-[railway=tram] { width: 4; }
-relation[type=route] line|z16-[railway=tram] { width: 6; }
-relation[type=route] line|z18-[railway=tram] { width: 8; }
+relation[type=route] line|z16-[railway=tram] { width: 5; }
+relation[type=route] line|z18-[railway=tram] { width: 6; }
 
-node[railway=tram_stop] {
+node|z12-[railway=tram_stop] {
     z-index: 9;
-    width: 6;
+    width: 5;
     color: #ff0000;
     casing-width: 1;
     casing-color: #330000;
 }
 
-node|z12-[railway=tram_stop] { width: 7; }
-node|z16-[railway=tram_stop] { width: 10; }
+node|z16-[railway=tram_stop] { width: 6; }
+node|z18-[railway=tram_stop] { width: 7; }
 
 /************************************************
 
@@ -330,13 +330,19 @@ way[highway=bridleway]{
     image: none;
 }
 
-way|z1-10[highway=residential],
-way|z1-10[highway=unclassified] {
-    width: 1;
-    color: #aa8877;
+way|z1-14[highway=residential],
+way|z1-14[highway=unclassified] {
+    width: 0.75;
+    color: #bb9966;
     casing-width: 0;
 }
 
+way|z1-12[highway=tertiary],
+way|z1-12[highway=tertiary_link] {
+    width: 1;
+    color: #bb9966;
+    casing-width: 0;
+}
 
 way[highway=steps] {
     z-index: 5;
