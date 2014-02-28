@@ -127,7 +127,7 @@ area[waterway=riverbank], relation[waterway=riverbank]
     fill-color: #9ce5ff;
     color: #50d1ff;
     width: 0.3;
-    // set: .water;
+    /* set: .water; // not supported */
 }
 
 area|z12-[natural=water], relation|z12-[natural=water],
@@ -174,7 +174,7 @@ area|z15-[building], relation[building] {
     fill-color: #dde0e4;
     color: #8b929b;
     width: 0.5;
-    /* extrude: eval('zmetric(tag("height"))'); // unsupported */
+    /* extrude: eval('zmetric(tag("height"))'); // not supported */
 }
 
 relation[building] way {
@@ -400,7 +400,7 @@ node|z5-[place=city], node|z11-[place=town], node|z13-[place=suburb], node|z13-[
     text-color: #000011a0;
     text-halo-color: #ffffff80;
     text-halo-radius: 1;
-    // opacity: 0.2;
+    /* opacity: 0.2; // not supported */
     font-size: 12;
     font-family: "Open Sans"; /*, sans-serif;*/
 }
@@ -416,7 +416,7 @@ node[place][population<1000000][population>100000] {
 }
 
 node[place=suburb] {
-    // text-transform: uppercase; // unsupported
+    /* text-transform: uppercase; // not supported */
 }
 
 node[place=city][population<100000] {
