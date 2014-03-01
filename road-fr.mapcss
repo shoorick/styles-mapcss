@@ -1,0 +1,395 @@
+canvas {
+    fill-color: #fcfaf6;
+    background-color: #fcfaf6;
+}
+
+/************************************************
+
+  ███   ██  ██    ███   ███
+ █  █  █   █  █  █  █  █
+ █  █  █   ████  █  █   ██
+ █  █  █   █     █  █     █
+  ██ █ █    ██    ██ █ ███
+
+*/
+area[natural=wood], area[landuse=forest],
+relation[natural=wood], relation[landuse=forest],
+area[leisure=park], relation[leisure=park] {
+    z-index: 3;
+    /*color: #88bb00;
+    width: 0.5;*/
+    fill-image: img/wood.png;
+    /*fill-color: #ddf69b;*/
+}
+
+area[landuse=cemetery],
+relation[landuse=cemetery] {
+    z-index: 4; /* over wood */
+    fill-image: img/cemetery.png;
+    color: #bace84;
+}
+
+relation[landuse=cemetery] way {
+    color: #bace84;
+}
+
+area|z15-[landuse=cemetery],
+relation|z15-[landuse=cemetery] {
+    text: name;
+    text-color: #bace84;
+    text-halo-color: #ffffff80;
+    text-halo-radius: 1;
+    font-size: 10;
+    font-family: "Open Sans";
+    font-style: italic;
+}
+
+/*
+area[wood=mixed], relation[wood=mixed] {
+    fill-image: img/wood-mixed.png;
+}
+
+area[wood=coniferous], relation[wood=coniferous] {
+    fill-image: img/wood-coniferous.png;
+}
+
+area[wood=deciduous], relation[wood=deciduous] {
+    fill-image: img/wood-deciduous.png;
+}
+*/
+
+area[natural=wetland], relation[natural=wetland] {
+    fill-image: img/wetland.png;
+}
+
+area[natural=wetland][wetland=swamp], relation[natural=wetland][wetland=swamp] {
+    fill-image: img/swamp.png;
+}
+
+area|z14-[natural=wetland], relation|z14-[natural=wetland] {
+    text: name;
+    text-color: #50d1ff;
+    text-halo-color: #ffffff80;
+    text-halo-radius: 1;
+    font-size: 10;
+    font-family: "PT Serif";
+    font-style: italic;
+}
+
+area[landuse=farmland], relation[landuse=farmland],
+area[landuse=farmyard], relation[landuse=farmyard] {
+    fill-color: #f7fac7;
+}
+
+area[landuse=garden], area[landuse=allotments], area[landuse=vineyard] {
+    fill-color: #ecfac7;
+}
+
+area[landuse=residential], relation[landuse=residential] {
+    fill-color: #fdf4ef;
+}
+
+area[landuse=residential][residential=rural], relation[landuse=residential][residential=rural] {
+    fill-color: #fef8f5;
+}
+
+area[landuse=industrial], relation[landuse=industrial], area[landuse=landfill],
+area[landuse=railway], relation[landuse=railway] {
+    fill-color: #f7f3f0;
+}
+
+
+
+/*
+relation[natural=wood] way, relation[landuse=forest] way {
+    z-index: 3;
+    width: 0.5;
+    color: #88bb00;
+}
+*/
+
+/************************************************
+
+                 █
+                 █
+ █  █  █   ███  ███   ██    ██
+ █  █  █  █  █   █   █  █  █
+ █  █  █  █  █   █   ████  █
+ █ █ █ █  █  █   █   █     █
+  █   █    ██ █   █   ██   █
+
+*/
+way[waterway] {
+    z-index: 2;
+    width: 0.6;
+    color: #55ddff;
+}
+
+area[natural=water], relation[natural=water],
+area[waterway=riverbank], relation[waterway=riverbank]
+{
+    z-index: 3;
+    fill-color: #55ddff;
+    color: #55ddff;
+    width: 0.3;
+    /* set: .water; // not supported */
+}
+
+area|z12-[natural=water], relation|z12-[natural=water],
+area|z12-[landuse=reservoir], relation|z12-[landuse=reservoir],
+area|z12-[waterway=riverbank], relation|z12-[waterway=riverbank]
+{
+    text: name;
+    text-color: #0099dd;
+    text-halo-color: #ffffff80;
+    text-halo-radius: 1;
+    font-size: 12;
+    font-family: "PT Serif";
+    font-style: italic;
+    text-position: center;
+}
+
+area[waterway=riverbank], relation[waterway=riverbank], way[waterway=river] {
+    text-position: line;
+}
+
+way[waterway=river], way[waterway=stream] {
+    z-index: 2;
+}
+
+
+way|z17[waterway] { width: 2.0; }
+way|z18-[waterway] { width: 4.0; }
+
+way[waterway=river] { width : 1; }
+way|z17[waterway=river] { width : 3.0; }
+way|z18-[waterway=river] { width : 6.0; }
+
+/************************************************
+
+           █  █
+              █
+  ██  ███  █  █   ███
+ █   █  █  █  █  █
+ █   █  █  █  █   ██
+ █   █  █  █  █     █
+ █    ██ █  █  █ ███
+
+ */
+
+way[railway=rail], way[railway=tram] {
+    z-index: 7;
+    color: #dddddd;
+    width: 1.0;
+    casing-width: 0.5;
+    casing-color: #bbbbbb;
+    dashes: 1,1;
+}
+
+way[railway=rail][usage=main] {
+    casing-color: #666666;
+    dashes: 4,4;
+}
+
+way|z17[railway=rail] { width: 2.0; dashes: 1,2; }
+way|z18-[railway=rail] { width: 4.0; dashes: 1,4; }
+
+way[railway=rail][service] { width: 0.2; }
+way|z17[railway=rail][service] { width: 0.5; }
+way|z18-[railway=rail][service] { width: 0.7; }
+
+
+/************************************************
+
+ █     █        █
+ █              █
+ ███   █   ███  ███   █  █  █   ███  █   █  ███
+ █  █  █  █  █  █  █  █  █  █  █  █  █   █ █
+ █  █  █  █  █  █  █  █  █  █  █  █   █ █   ██
+ █  █  █  █  █  █  █  █ █ █ █  █  █   █ █     █
+ █  █   █  ███  █  █   █   █    ██ █   █   ███
+             █                        █
+          ███                        █
+
+*/
+
+/* important highways */
+way[highway=motorway], way[highway=motorway_link],
+way[highway=trunk], way[highway=trunk_link], 
+way[highway=primary], way[highway=primary_link],
+way[highway=secondary], way[highway=secondary_link],
+way[highway=tertiary], way[highway=tertiary_link] {
+    color: #ffffff;
+    linecap: round;
+    casing-linecap: round;
+    casing-width: 0.5;
+    casing-color: #ddaa77;
+    linejoin: bevel;
+    casing-linejoin: bevel;
+}
+
+way[highway=motorway], way[highway=motorway_link],
+way[highway=trunk], way[highway=trunk_link] {
+    z-index: 5;
+    casing-width: 0.95;
+    color: #ff9966;
+    casing-color: #bb5500;
+    width: 4;
+}
+
+way[highway=primary], way[highway=primary_link] {
+    z-index: 4;
+    casing-width: 0.8;
+    width: 2;
+    color: #ffbb88;
+    casing-color: #cc6600;
+}
+
+way[highway=secondary], way[highway=secondary_link] {
+    z-index: 3;
+    casing-width: 0.65;
+    width: 1.5;
+    color: #ffddaa;
+}
+
+way[highway=tertiary], way[highway=tertiary_link] {
+    z-index: 2;
+    casing-width: 0.6;
+    width: 1.25;
+    color: #ffeecc;
+}
+
+way|z1-14[highway=unclassified] {
+    z-index: 1;
+    width: 0.75;
+    color: #bb9966;
+    casing-width: 0;
+}
+
+
+way[highway=motorway_link], way[highway=trunk_link], way[highway=primary_link],
+way[highway=secondary_link], way[highway=tertiary_link] {
+    width: 1;
+}
+
+
+way[bridge][highway] {
+    casing-width: 2.0;
+    casing-linecap: none;
+    casing-dashes: 0;
+    casing-color: #bb8855;
+}
+
+/************************************************
+
+      █
+      █
+ ███  █   ███   ███  ██   ███
+ █  █ █  █  █  █    █  █ █
+ █  █ █  █  █  █    ████  ██
+ █  █ █  █  █  █    █       █
+ ███   █  ██ █  ███  ██  ███
+ █
+ █
+
+*/
+
+
+node|z5-[place=city], node|z10-[place=town],
+node|z13-[place=suburb], node|z13-[place=village],
+node|z14-[place=hamlet], node|z15-[place=locality] {
+    text: name:fr;
+    /*text: eval("any(tag('name:fr'), tag('int_name'), tag('name:en'), tag('name'))");*/
+    text-color: #000011a0;
+    text-halo-color: #ffffff60;
+    text-halo-radius: 1.5;
+    /* opacity: 0.2; // not supported */
+    font-size: 12;
+    font-family: "Open Sans"; /*, sans-serif;*/
+}
+
+node[place][population>1000000] {
+    font-size: 48;
+    text-halo-radius: 3;
+}
+
+node[place][population<1000000][population>100000] {
+    font-size: 36;
+    text-halo-radius: 2;
+}
+
+node[place=suburb] {
+    /* text-transform: uppercase; // not supported */
+}
+
+node[place=city][population<100000] {
+    font-size: 24;
+}
+
+node|z12[place=city][population<50000], node|z12[place=town] {
+    font-size: 18;
+    text-color: #000011a0;
+}
+node|z13[place=city][population<50000], node|z13[place=town] {
+    font-size: 36;
+    text-color: #00001180;
+}
+node|z14[place=city][population<50000], node|z14[place=town] {
+    font-size: 72;
+    text-color: #00001160;
+}
+node|z15[place=city][population<50000], node|z15[place=town] {
+    font-size: 144;
+    text-color: #00001140;
+}
+node|z16-[place=city][population<50000], node|z16-[place=town] {
+    font-size: 288;
+    text-color: #00001120;
+}
+
+node[place=suburb] {
+    font-family: "Open Sans Condensed Light"; /*, sans-serif;*/
+}
+
+
+node|z14[place=village] {
+    text-color: #00001180;
+    font-size: 24;
+}
+
+node|z15[place=village] {
+    text-color: #00001160;
+    font-size: 48;
+}
+
+node|z16-[place=village] {
+    text-color: #00001140;
+    font-size: 96;
+}
+
+
+node|z14-[place=hamlet] {
+    font-size: 10;
+    text-color: #00001180;
+    font-style: italic;
+}
+
+node|z15[place=hamlet] {
+    font-size: 20;
+    text-color: #00001160;
+}
+
+node|z16[place=hamlet] {
+    font-size: 40;
+    text-color: #00001140;
+}
+
+node|z17-[place=hamlet] {
+    font-size: 40;
+    text-color: #00001120;
+}
+
+node[place=locality] {
+    font-size: 8;
+    font-style: italic;
+}
